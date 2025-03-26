@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Ticket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <img src="logo.svg" alt="Coding Conf Logo" class="logo" />
+    <h2>Congrats, <span id="congrats-name"></span>!<br>Your ticket is ready.</h2>
+    <p class="confirmation-text">
+      We've emailed your ticket to <span id="congrats-email"></span> and will send updates in the run up to the event.
+    </p>
+    <div class="ticket">
+      <div class="ticket-content">
+        <div class="ticket-header">
+          <img src="logo.svg" alt="Coding Conf Logo" class="ticket-logo" />
+          <div class="ticket-details">Coding Conf<br><small>Jan 31, 2025 / Austin, TX</small></div>
+        </div>
+        <div class="ticket-body">
+          <img id="ticket-avatar" src="" alt="Avatar" />
+          <div class="info">
+            <p class="name" id="ticket-name"></p>
+            <p class="github" id="ticket-github"></p>
+          </div>
+        </div>
+      </div>
+      <div class="ticket-code">#0609</div>
+    </div>
+  </main>
+
+  <script>
+    // Recupera os dados do localStorage
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const github = localStorage.getItem('github');
+    const avatar = localStorage.getItem('avatar');
+
+    document.getElementById('congrats-name').textContent = name;
+    document.getElementById('congrats-email').textContent = email;
+    document.getElementById('ticket-name').textContent = name;
+    document.getElementById('ticket-github').textContent = '@' + github.replace(/^@/, '');
+    document.getElementById('ticket-avatar').src = avatar;
+    document.getElementById('ticket-avatar').alt = name;
+  </script>
+</body>
+</html>
