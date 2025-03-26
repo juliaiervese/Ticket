@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Ticket Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section class="form-container">
+            <h1>Generate Your Conference Ticket</h1>
+            <form id="ticket-form">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="avatar">Upload Avatar</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*" required>
+                
+                <button type="submit">Generate Ticket</button>
+            </form>
+        </section>
+        <section id="ticket-display" class="hidden">
+            <h2>Your Conference Ticket</h2>
+            <div class="ticket">
+                <img id="ticket-avatar" src="" alt="Avatar">
+                <p id="ticket-name"></p>
+                <p id="ticket-email"></p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
