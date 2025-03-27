@@ -28,19 +28,20 @@
         <small id="upload-confirmation" class="confirmation-message" style="color: green;"></small>
           
 
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="" required />
-        <small id="name-error" class="error-message"></small>
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="example@email.com" required />
-        <small id="mail-error" class="error-message"></small>
-
-        <label for="github">GitHub Username</label>
-        <input type="text" id="github" name="github" placeholder="@yourusername" required />
-        <small id="git-error" class="error-message"></small>
-
-        <button type="submit">Generate My Ticket</button>
+        <form id="ticket-form" novalidate>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder=""  />
+          <small id="name-error" class="error-message"></small>
+      
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com"  />
+          <small id="mail-error" class="error-message"></small>
+      
+          <label for="github">GitHub Username</label>
+          <input type="text" id="github" name="github" placeholder="@yourusername"  />
+          <small id="git-error" class="error-message"></small>
+      
+          <button type="submit">Generate My Ticket</button>
       </form>
     </section>
 
@@ -72,20 +73,4 @@
 
   <script src="script.js"></script>
 </body>
-<script>
-  const avatarInput = document.getElementById('avatar');
-  const confirmationMessage = document.getElementById('upload-confirmation');
-  const uploadText = document.getElementById('upload-text');
-
-  avatarInput.addEventListener('change', () => {
-    if (avatarInput.files && avatarInput.files.length > 0) {
-      const fileName = avatarInput.files[0].name;
-      confirmationMessage.textContent = `✅ Imagem "${fileName}" carregada com sucesso!`;
-      uploadText.textContent = "Imagem carregada!";
-    } else {
-      confirmationMessage.textContent = "";
-      uploadText.textContent = "Drag and drop to upload";
-    }
-  });
-</script>
 </html>
