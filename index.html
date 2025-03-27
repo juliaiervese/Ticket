@@ -25,16 +25,20 @@
             <input type="file" id="avatar" name="avatar" accept="image/*" hidden />
         </div>
         <small id="avatar-error" class="error-message"></small>
+        <small id="upload-confirmation" class="confirmation-message" style="color: green;"></small>
           
 
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="" required />
+        <small id="name-error" class="error-message"></small>
 
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="example@email.com" required />
+        <small id="mail-error" class="error-message"></small>
 
         <label for="github">GitHub Username</label>
         <input type="text" id="github" name="github" placeholder="@yourusername" required />
+        <small id="git-error" class="error-message"></small>
 
         <button type="submit">Generate My Ticket</button>
       </form>
@@ -50,7 +54,7 @@
       <div class="ticket">
         <div class="ticket-content">
           <div class="ticket-header">
-            <img src="logo.svg" alt="Coding Conf Logo" class="ticket-logo" />
+            <img src="./assets/images/logo-mark.svg" alt="Coding Conf Logo" class="ticket-logo" />
             <div class="ticket-details">Coding Conf<br><small>Jan 31, 2025 / Austin, TX</small></div>
           </div>
           <div class="ticket-body">
@@ -68,4 +72,20 @@
 
   <script src="script.js"></script>
 </body>
+<script>
+  const avatarInput = document.getElementById('avatar');
+  const confirmationMessage = document.getElementById('upload-confirmation');
+  const uploadText = document.getElementById('upload-text');
+
+  avatarInput.addEventListener('change', () => {
+    if (avatarInput.files && avatarInput.files.length > 0) {
+      const fileName = avatarInput.files[0].name;
+      confirmationMessage.textContent = `✅ Imagem "${fileName}" carregada com sucesso!`;
+      uploadText.textContent = "Imagem carregada!";
+    } else {
+      confirmationMessage.textContent = "";
+      uploadText.textContent = "Drag and drop to upload";
+    }
+  });
+</script>
 </html>

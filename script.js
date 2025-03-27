@@ -12,26 +12,46 @@ document.getElementById('ticket-form').addEventListener('submit', function(event
     const ticketEmail = document.getElementById('congrats-email');
     const ticketCongrats = document.getElementById('congrats-name');
     const ticketAvatar = document.getElementById('ticket-avatar');
-  
-    if (!nameInput.value.trim() || !emailInput.value.trim() || !githubInput.value.trim()) {
-        alert('All fields are required.');
-        return;
-      }
-      
-    const avatarError = document.getElementById('avatar-error');
 
+    const avatarError = document.getElementById('avatar-error');
+    const nameError = document.getElementById('name-error');
+    const mailError = document.getElementById('mail-error');
+    const gitError = document.getElementById('git-error');
+
+   
     if (!avatarInput.files.length) {
     avatarError.textContent = "Please upload an avatar.";
     return;
     } else {
-    avatarError.textContent = "";
+   
     }
+
+    if (!nameInput.text.length) {
+      nameError.textContent = "Please add a name.";
+      return;
+      } else {
+     
+      }
+
+      if (!emailInput.textContent.length) {
+        mailError.textContent = "Please add a valid email.";
+        return;
+        } else {
+       
+        }
+
+        if (!githubInput.text.length) {
+          gitError.textContent = "Please a username.";
+          return;
+          } else {
+         
+          }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(emailInput.value)) {
       alert('Please enter a valid email address.');
       return;
-    }
+    } 
   
     const file = avatarInput.files[0];
     if (file.size > 2 * 1024 * 1024) {
